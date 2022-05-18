@@ -1,0 +1,6 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 50px;
+    /* border: 2px salmon solid; */
+}

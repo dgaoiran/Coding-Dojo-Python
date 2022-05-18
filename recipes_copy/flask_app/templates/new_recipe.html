@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>New Recipe</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <h2> Add Recipe</h2>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <li class="nav-item">
+                <a href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="/logout">Logout</a>
+            </li>
+    </nav>
+        <div class="col-md-3">
+            <form action="/create" method="POST">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" name="name" class="form-control">
+                <br>
+                <label for="description" class="form-label">Description:</label>
+                <input type="text" name="description" class="form-control">
+                <br>
+                <label for="instructions" class="form-label">Instructions:</label>
+                <textarea class="form-control" name="instructions" class="form-control"></textarea>
+                <br>
+                <label for="datemade" class="form-label">Date Made:</label>
+                <input type="date" name="date_made" class="form-control"> 
+                <br>
+                <label for="cook_time" class="form-label">Under 30 min:</label>
+                <br>
+                <input type="radio" name="cook_time" id="cook_time" value="1">
+                <label for="1">Yes</label>
+                <input type="radio" name="cook_time" id="cook_time" value="0">
+                <label for="0">No</label>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Create" class="btn btn-primary">
+                {% with messages = get_flashed_messages(category_filter=['recipe']) %}
+                    {% if messages %}
+                        <div class="alert alert-primary" role="alert">
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>

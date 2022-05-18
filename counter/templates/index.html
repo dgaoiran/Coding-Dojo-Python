@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Counter</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Counter</h1>
+        <div class="counter">
+            <h3>{{ session['count'] }} time(s)</h3>
+        </div>
+
+        <div class="controls">
+            <form action="/add_2", method="post">
+                <a href="/add_2">
+                <button class="buttons">+ 2</button>
+                </a>
+            </form>
+        
+            <form action="/destroy_session", method="post">
+                <a href="/destroy_session">
+                <button class="buttons">Reset</button>
+                </a>
+            </form>
+        </div>
+
+        <div class="increment">
+            <form action='/increment' method='post'>
+                <label>Enter Number to Increment: </label>
+                <input type="number" name="number">
+                <input type='submit' value="submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.container {
+    padding-top: 20px;
+    /* border: 2px solid black; */
+}
+
+.list-group {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
